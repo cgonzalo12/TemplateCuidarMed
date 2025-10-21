@@ -1,5 +1,6 @@
 using Infraestructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //custom
+// Obtenego la cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(connectionString));
+if (string.IsNullOrEmpty(connectionString))
+{
+    // Si esta parte falla, es la causa del error.
+    throw new InvalidOperationException("La cadena de conexión 'DefaultConnection' no fue encontrada en appsettings.json.");
+}
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString) // Pasa la cadena LEÍDA aquí
+);
+
 
 var app = builder.Build();
 
