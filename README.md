@@ -3,14 +3,13 @@
 **CuidarMed** es una aplicación web para la **gestión integral de pacientes, doctores y usuarios** en entornos de salud.  
 
 ✨ **Características principales:**
-- 👤 Registro de usuarios y gestión de roles (paciente, doctor, admin)  
+- 👤 Registro de usuarios y gestión de roles (paciente, doctor)  
 - 🩺 Administración de datos médicos y turnos  
-- 🔒 Control de acceso seguro según permisos  
-- ⚡ Escalable y fácil de integrar con frontend o apps móviles  
+- 🔒 Control de acceso seguro según permisos   
 
 💻 **Tecnologías utilizadas:**
 - Backend: **.NET 9**, **C#**, **Entity Framework Core**, **SQL Server**  
-- Frontend: [React / Blazor / Angular / etc.] (según corresponda)  
+- Frontend: HTML, CSS, Javascript
 - Documentación: **Swagger**  
 
 🚀 **Objetivo:**  
